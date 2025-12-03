@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-star"></i> Recommendation Explorer</h1>
+        <p class="subtitle">Discover movies and books you'll love</p>
+    </header>
+
+    <main>
+        <div class="app-container">
+            <!-- Controls section -->
+            <section class="controls-section">
+                <div class="filter-controls">
+                    <h2>Filters</h2>
+                    <div class="filter-group">
+                        <label for="tag-filter">Filter by tag:</label>
+                        <select id="tag-filter">
+                            <option value="all">All Tags</option>
+                            <option value="sci-fi">Sci-Fi</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="action">Action</option>
+                            <option value="drama">Drama</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="romance">Romance</option>
+                            <option value="thriller">Thriller</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="type-filter">Filter by type:</label>
+                        <select id="type-filter">
+                            <option value="all">All Types</option>
+                            <option value="movie">Movies</option>
+                            <option value="book">Books</option>
+                        </select>
+                    </div>
+                    <button id="reset-btn" class="reset-btn">
+                        <i class="fas fa-undo"></i> Reset Likes & Ratings
+                    </button>
+                </div>
+                
+                <!-- My Likes panel -->
+                <div class="likes-panel">
+                    <h2><i class="fas fa-heart"></i> My Likes</h2>
+                    <div id="liked-items" class="liked-items-container">
+                        <p class="empty-message">No items liked yet. Click the heart icon on any item to add it here.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Items grid -->
+            <section class="items-section">
+                <h2>Browse Items</h2>
+                <div id="items-grid" class="items-grid">
+                    <!-- Items will be inserted here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Recommendations section -->
+            <section class="recommendations-section">
+                <h2>Recommendations</h2>
+                
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="content-based">
+                        <i class="fas fa-tags"></i> Content-Based
+                    </button>
+                    <button class="tab-button" data-tab="collaborative">
+                        <i class="fas fa-users"></i> Collaborative
+                    </button>
+                </div>
+                
+                <div id="content-based" class="tab-content active">
+                    <div class="algorithm-explanation">
+                        <p><strong>How it works:</strong> Recommends items similar to those you've liked based on shared tags/genres.</p>
+                    </div>
+                    <div id="content-recommendations" class="recommendations-list">
+                        <p class="empty-message">Like some items to get content-based recommendations.</p>
+                    </div>
+                </div>
+                
+                <div id="collaborative" class="tab-content">
+                    <div class="algorithm-explanation">
+                        <p><strong>How it works:</strong> Predicts ratings based on how similar users rated items (using a pre-populated matrix of 5 example users).</p>
+                    </div>
+                    <div id="collaborative-recommendations" class="recommendations-list">
+                        <p class="empty-message">Rate some items to get collaborative recommendations.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Recommendation App &copy; 2023 | Built with vanilla HTML, CSS & JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
